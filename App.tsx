@@ -1,5 +1,4 @@
 import React from "react";
-import { Dashboard } from "./src/screens/Dashboard";
 import { ThemeProvider } from "styled-components";
 import theme from "./src/global/styles/theme";
 import {
@@ -10,6 +9,8 @@ import {
 } from "@expo-google-fonts/poppins";
 import AppLoading from "expo-app-loading";
 import { StatusBar } from "react-native";
+import { Register } from "./src/screens/Register";
+import { CategorySelect } from "./src/screens/CategorySelect";
 
 export default function App() {
 
@@ -26,7 +27,7 @@ export default function App() {
     return (
         <ThemeProvider theme={theme}>
             <StatusBar backgroundColor='transparent' translucent barStyle='light-content'/>
-            <Dashboard />
+            <Register />
         </ThemeProvider>
     );
 }
