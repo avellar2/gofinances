@@ -43,7 +43,7 @@ export function Register() {
         resolver: yupResolver(schema),
     });
 
-    function handleRegister(form: FormData) {
+    function handleRegister(form: FormData | any) {
         if (!transactionType)
             return Alert.alert("Selecione o tipo da transação");
         if (category.key === "category")
@@ -136,4 +136,4 @@ export function Register() {
             </Container>
         </TouchableWithoutFeedback>
     );
-}
+} 

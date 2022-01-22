@@ -11,23 +11,30 @@ import AppLoading from "expo-app-loading";
 import { StatusBar } from "react-native";
 import { Register } from "./src/screens/Register";
 import { CategorySelect } from "./src/screens/CategorySelect";
+import { NavigationContainer } from "@react-navigation/native";
+import { AppRoutes } from "./src/routes/app.routes";
 
 export default function App() {
-
     const [fontLoader] = useFonts({
         Poppins_700Bold,
         Poppins_500Medium,
-        Poppins_400Regular
-    })
+        Poppins_400Regular,
+    });
 
     if (!fontLoader) {
-        return <AppLoading/>
+        return <AppLoading />;
     }
 
     return (
         <ThemeProvider theme={theme}>
-            <StatusBar backgroundColor='transparent' translucent barStyle='light-content'/>
-            <Register />
+            <StatusBar
+                backgroundColor="transparent"
+                translucent
+                barStyle="light-content"
+            />
+            <NavigationContainer>
+                <AppRoutes />
+            </NavigationContainer>
         </ThemeProvider>
     );
 }
