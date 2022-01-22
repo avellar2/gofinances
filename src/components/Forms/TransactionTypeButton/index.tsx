@@ -1,5 +1,6 @@
 import React from "react";
 import { TouchableOpacityProps } from "react-native";
+import { GestureHandlerRootView } from "react-native-gesture-handler";
 import {
   Container,
   Icon,
@@ -19,9 +20,11 @@ interface Props extends TouchableOpacityProps {
 
 export function TransactionTypeButton({title, type, isActive, ...rest}: Props){
   return (
+    <>
     <Container {...rest} isActive={isActive} type={type}>
       <Icon name={icons[type]} type={type}/>
       <Title>{title}</Title>
     </Container>
+    </>
   )
 }
