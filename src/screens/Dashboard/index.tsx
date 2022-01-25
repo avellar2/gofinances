@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 import { HightlightCard } from "../../components/HightlightCard";
 import AsyncStorage from "@react-native-async-storage/async-storage";
@@ -22,6 +22,7 @@ import {
     TransactionList,
     LogoutButton,
 } from "./styles";
+import { useFocusEffect } from "@react-navigation/native";
 
 export interface DataListProps extends TransactionCardProps {
     id: string;
@@ -60,11 +61,16 @@ export function Dashboard() {
                 }
             })
             setData(transactionFormatted)
+            console.log(transactionFormatted)
     }
 
     useEffect(() => {
         loadTransactions();
     }, []);
+
+    useFocusEffect(useCallback(() =>{
+        loadTransactions()
+    }, []))
 
     return (
         <>
