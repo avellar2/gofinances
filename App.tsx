@@ -15,6 +15,7 @@ import "intl";
 import "intl/locale-data/jsonp/pt-BR";
 import { SignIn } from "./src/screens/SignIn";
 import { AuthProvider } from "./src/hooks/auth";
+import { Routes } from "./src/routes";
 
 export default function App() {
     const [fontLoader] = useFonts({
@@ -35,11 +36,9 @@ export default function App() {
                 barStyle="light-content"
             />
 
-            <NavigationContainer>
-                <AuthProvider>
-                    <SignIn />
-                </AuthProvider>
-            </NavigationContainer>
+            <AuthProvider>
+                <Routes />
+            </AuthProvider>
         </ThemeProvider>
     );
 }

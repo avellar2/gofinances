@@ -1,5 +1,5 @@
-import React, { useContext } from "react";
-import { Alert } from "react-native";
+import React, { useContext, useEffect } from "react";
+import { Alert, AsyncStorage } from "react-native";
 import { RFValue } from "react-native-responsive-fontsize";
 import AppleSvg from '../../assets/apple.svg'
 import GoogleSvg from '../../assets/google.svg'
@@ -20,6 +20,8 @@ export function SignIn(){
 
   const {sigInWithGoogle} = useAuth()
 
+  
+
   async function handleSignInWithGoogle() {
     try {
       await sigInWithGoogle()
@@ -29,6 +31,12 @@ export function SignIn(){
 
     }
   }
+
+  useEffect(()=>{
+    async function LoadStorageUserDate() {
+      const data = await AsyncStorage.getItem('@gofinances:user')
+    }
+  },[])
 
   return (
     <Container>
